@@ -48,6 +48,7 @@ module.exports = (grunt) ->
         files: [
           '<%= yeoman.app %>/{,*/}*.html'
           '.tmp/styles/{,*/}*.css'
+          '.tmp/views/{,*/}*.html'
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
 
@@ -261,7 +262,6 @@ module.exports = (grunt) ->
               '*.{ico,png,txt}'
               '.htaccess'
               '*.html'
-              'views/{,*/}*.html'
               'bower_components/**/*'
               'images/{,*/}*.{webp}'
               'fonts/*'
@@ -272,6 +272,12 @@ module.exports = (grunt) ->
             cwd: '.tmp/images'
             dest: '<%= yeoman.dist %>/images'
             src: ['generated/*']
+          }
+          {
+            expand: true
+            cwd: '.tmp/views'
+            dest: '<%= yeoman.dist %>/views'
+            src: ['{,*/}*.html']
           }
         ]
 
@@ -287,6 +293,7 @@ module.exports = (grunt) ->
       test: ['coffee', 'compass']
       dist: [
         'coffee'
+        'haml'
         'compass:dist'
         'imagemin'
         'svgmin'
@@ -366,7 +373,6 @@ module.exports = (grunt) ->
     'uglify'
     'rev'
     'usemin'
-    'haml'
     'htmlmin'
   ]
 

@@ -1,7 +1,7 @@
 {
     "lib": {
         "www": {
-            "uri": "../c3a/app",
+            "uri": "../c3a/dist",
             "link": true
         }
     }

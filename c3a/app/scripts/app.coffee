@@ -3,6 +3,7 @@
 app = angular.module('c3aApp', [
   'ngResource'
   'ngRoute'
+  'ngTouch'
 ])
 
 app.config ($routeProvider) ->
