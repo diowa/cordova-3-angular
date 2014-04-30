@@ -1,3 +1,4 @@
+/*global $:false */
 
 'use strict';
 
@@ -7,11 +8,11 @@ var CordovaInit = function() {
 		receivedEvent('deviceready');
 	};
 
-	var receivedEvent = function(event) {
+	var receivedEvent = function() {
 		console.log('Start event received, bootstrapping application setup.');
 		angular.bootstrap($('body'), ['c3aApp']);
 	};
-	
+
 	this.bindEvents = function() {
 		document.addEventListener('deviceready', onDeviceReady, false);
 	};
@@ -23,7 +24,7 @@ var CordovaInit = function() {
 		this.bindEvents();
 	} else {
 		console.log('Cordova not found, booting application');
-		receivedEvent('manual')
+		receivedEvent('manual');
 	}
 };
 
