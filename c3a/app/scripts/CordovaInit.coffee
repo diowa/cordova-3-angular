@@ -6,7 +6,7 @@ CordovaInit = ->
 
   receivedEvent = ->
     console.log 'Start event received, bootstrapping application setup.'
-    angular.bootstrap document.body, ['c3aApp']
+    angular.bootstrap document.body, ['app']
 
   @bindEvents = ->
     document.addEventListener 'deviceready', onDeviceReady, false

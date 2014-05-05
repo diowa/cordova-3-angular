@@ -4,6 +4,7 @@
   "dependencies": {
     "ratchet": "2.0.2",
     "angular": "1.2.6",
+    "angular-animate": "1.2.6",
     "angular-resource": "1.2.6",
     "angular-route": "1.2.6",
     "angular-touch": "1.2.6"

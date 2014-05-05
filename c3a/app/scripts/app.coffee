@@ -1,15 +1,22 @@
-'use strict'
-
-app = angular.module('c3aApp', [
+app = angular.module('app', [
+  'ngAnimate'
   'ngResource'
   'ngRoute'
   'ngTouch'
+
+  'appControllers'
+  'appFilters'
+  'appServices'
 ])
 
-app.config ($routeProvider) ->
-  $routeProvider
-    .when '/',
-      templateUrl: 'views/main.html'
-      controller: 'MainCtrl'
-    .otherwise
-      redirectTo: '/'
+app.config [
+  '$routeProvider',
+  ($routeProvider) ->
+    $routeProvider.when('/phones',
+      templateUrl: 'partials/phone-list.html'
+      controller: 'PhoneListCtrl'
+    ).when('/phones/:phoneId',
+      templateUrl: 'partials/phone-detail.html'
+      controller: 'PhoneDetailCtrl'
+    ).otherwise redirectTo: '/phones'
+]

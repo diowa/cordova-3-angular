@@ -35,7 +35,7 @@ module.exports = (grunt) ->
         tasks: ['compass:server', 'autoprefixer']
 
       haml:
-        files: ['<%= yeoman.app %>/views/{,*/}*.haml'],
+        files: ['<%= yeoman.app %>/partials/{,*/}*.haml'],
         tasks: ['newer:haml:dist']
 
       gruntfile:
@@ -48,7 +48,7 @@ module.exports = (grunt) ->
         files: [
           '<%= yeoman.app %>/{,*/}*.html'
           '.tmp/styles/{,*/}*.css'
-          '.tmp/views/{,*/}*.html'
+          '.tmp/partials/{,*/}*.html'
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
 
@@ -171,9 +171,9 @@ module.exports = (grunt) ->
       dist:
         files: [
           expand: true
-          cwd: '<%= yeoman.app %>/views'
+          cwd: '<%= yeoman.app %>/partials'
           src: '{,*/}*.haml'
-          dest: '.tmp/views'
+          dest: '.tmp/partials'
           ext: '.html'
         ]
 
@@ -233,7 +233,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: '<%= yeoman.dist %>'
-          src: ['*.html', 'views/{,*/}*.html']
+          src: ['*.html', 'partials/{,*/}*.html']
           dest: '<%= yeoman.dist %>'
         ]
 
@@ -251,6 +251,15 @@ module.exports = (grunt) ->
 
     # Copies remaining files to places other tasks can use
     copy:
+      assets:
+        files: [
+          {
+            expand: true
+            cwd: 'assets'
+            dest: '.tmp'
+            src: ['**/*']
+          }
+        ]
       dist:
         files: [
           {
@@ -275,9 +284,15 @@ module.exports = (grunt) ->
           }
           {
             expand: true
-            cwd: '.tmp/views'
-            dest: '<%= yeoman.dist %>/views'
+            cwd: '.tmp/partials'
+            dest: '<%= yeoman.dist %>/partials'
             src: ['{,*/}*.html']
+          }
+          {
+            expand: true
+            cwd: 'assets'
+            dest: '<%= yeoman.dist %>'
+            src: ['**/*']
           }
         ]
 
@@ -289,7 +304,7 @@ module.exports = (grunt) ->
 
     # Run some tasks in parallel to speed up the build process
     concurrent:
-      server: ['coffee:dist', 'haml:dist', 'compass:server']
+      server: ['coffee:dist', 'haml:dist', 'compass:server', 'copy:assets']
       test: ['coffee', 'compass']
       dist: [
         'coffee'

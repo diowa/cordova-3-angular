@@ -1,0 +1,15 @@
+.content-padded
+  %input{ type: 'search', 'ng-model' => 'query', placeholder: 'Search' }
+  Sort by:
+  %select{ 'ng-model' => 'orderProp' }
+    %option{ value: 'name' } Alphabetical
+    %option{ value: 'age' } Newest
+
+/ Body content
+%ul.table-view
+  %li.table-view-cell.media{ 'ng-repeat' => 'phone in phones | filter:query | orderBy:orderProp' }
+    %a.navigate-right{ href: '#/phones/{{phone.id}}', data: { push: 'ignore' } }
+      %img.media-object.pull-left.phone-thumb{ 'ng-src' => '{{phone.imageUrl}}' }/
+      .media-body
+        {{phone.name}}
+        %p {{phone.snippet}}
