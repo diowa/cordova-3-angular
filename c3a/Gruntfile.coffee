@@ -255,8 +255,8 @@ module.exports = (grunt) ->
         files: [
           {
             expand: true
-            cwd: 'assets'
-            dest: '.tmp'
+            cwd: '<%= yeoman.app %>/phones'
+            dest: '.tmp/phones'
             src: ['**/*']
           }
         ]
@@ -290,8 +290,8 @@ module.exports = (grunt) ->
           }
           {
             expand: true
-            cwd: 'assets'
-            dest: '<%= yeoman.dist %>'
+            cwd: '<%= yeoman.app %>/phones'
+            dest: '<%= yeoman.dist %>/phones'
             src: ['**/*']
           }
         ]

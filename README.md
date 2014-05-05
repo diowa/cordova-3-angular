@@ -66,7 +66,7 @@ $ cd ..
 
 Edit sources in the `c3a/app` folder.
 
-`c3a/assets` are copied into the application without being processed.
+If you need extra folders in your application, remeber to edit `Gruntfile.coffee`.
 
 
 

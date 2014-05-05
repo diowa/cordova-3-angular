@@ -41,9 +41,9 @@
     }, 
     "id": "samsung-gem", 
     "images": [
-        "images/phones/samsung-gem.0.jpg", 
-        "images/phones/samsung-gem.1.jpg", 
-        "images/phones/samsung-gem.2.jpg"
+        "phones/img/samsung-gem.0.jpg", 
+        "phones/img/samsung-gem.1.jpg", 
+        "phones/img/samsung-gem.2.jpg"
     ], 
     "name": "Samsung Gem\u2122", 
     "sizeAndWeight": {
